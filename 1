@@ -1,0 +1,47 @@
+/*
+GT
+Date 03.11.2023
+recdCZtH05jxuHdFd
+
+Описание задания.
+
+ 1 уровень сложности: Используйте базу данных hr;
+Найти департамент с наибольшим количеством сотрудников(вывести название департамента и ид департамента)
+
+Код урока в репозитории по ссылке здесь https://github.com/IuriiAV/sqllessons.git  (занятие 9)
+
+
+2 уровень сложности: 
+
+
+*/
+
+Solution
+
+use hr;
+SELECT 
+t1.department_id, 
+t1.department_name, 
+COUNT(*) AS employee_count
+FROM employees t2
+JOIN departments t1 ON t2.department_id = t1.department_id
+GROUP BY t2.department_id, t1.department_name
+ORDER BY employee_count DESC;
+
+
+
+
+Департамент с наибольшим количеством сотрудников = Shipping (45 сотрудников)
+Result
+
+50	Shipping	45
+80	Sales	34
+100	Finance	6
+30	Purchasing	6
+60	IT	5
+90	Executive	3
+20	Marketing	2
+110	Accounting	2
+10	Administration	1
+40	Human Resources	1
+70	Public Relations	1
